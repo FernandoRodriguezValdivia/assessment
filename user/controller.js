@@ -10,16 +10,23 @@ const verifiedPass = async (passwordSent, passwordStored) => {
 
 exports.create = async (req, res) => {
     const { email, password } = req.body
-    const newUser = new User({ email, password})
-    try{
-        const savedUser = await newUser.save()
-        res.status(200).send({
-            'status': 'user created',
-            'data': savedUser
+    const regex = /^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9]).{8}$/
+    const isStrong = regex.test(password)
+    if(!isStrong){
+        res.status(400).send({
+            "message": "La contraseña debe contener 1 mayúscula, 1 caracter especial, 1 número y más de 7 caracteres "
         })
-    } catch(e){
-        console.log(e)
-        res.status(500).send({'error': e.message})  
+    } else {
+        const newUser = new User({ email, password})
+        try{
+            const savedUser = await newUser.save()
+            res.status(200).send({
+                'status': 'user created',
+                'data': savedUser
+            })
+        } catch(e){
+            res.status(500).send({'error': e.message})  
+        }
     }
 }
 
