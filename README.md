@@ -6,6 +6,14 @@ música, ropa, cursos, etc.
 ### Crear usuario
 * Para crear un usuario se usa un email y una contraseña que debe contener 1 mayúscula, 1 caracter especial, 1 número y una longitud de más 7 caracteres.
 * Para crear el usuario se usa la ruta: /auth/create y el método post.
+* Se debe enviar el email y la contraseña en un json de la siguiente forma:
+
+```json
+{
+    "email": "user@example.test",
+    "password": "TestPassword123!"
+}
+```
 
 ### Ingresar usuario
 * Para ingresar un usuario se usa un email y su contraseña correspondiente.
