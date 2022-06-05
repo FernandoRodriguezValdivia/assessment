@@ -27,7 +27,7 @@ userSchema.pre('save', async function save(next) {
 
 userSchema.set('toJSON', {
     transform: (document, returnedObject)=>{
-        // delete returnedObject.password
+        delete returnedObject.password
         delete returnedObject.__v
     }
 })
