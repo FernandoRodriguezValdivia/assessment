@@ -18,7 +18,7 @@ exports.create = async (req, res) => {
             {favs: favArray},
             {new: true}
         )
-        res.status(200).json({
+        res.status(201).json({
             "message": "Fav created",
             userUpdated,
             favSaved
@@ -60,7 +60,7 @@ exports.getOne = async (req, res) => {
             })
         } else {
             res.status(403).json({
-                "message": "Not authorized",
+                "error": "Unauthenticated",
             })
         }
     }catch(e){
@@ -91,7 +91,7 @@ exports.delete = async (req, res) => {
             })
         } else {
             res.status(400).json({
-                "message": "Not authorized",
+                "error": "Unauthenticated",
             })
         }
     } catch (error) {

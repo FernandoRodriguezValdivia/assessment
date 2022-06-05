@@ -20,10 +20,6 @@ música, ropa, cursos, etc.
 * Para ingresar el usuario se usa la ruta: /auth/local/login y el método post.
 * Al ingresar un usuario nos responde con su token correspondiente.
 
-### Obtener la lista de favoritos de un usuario
-* Para obtener la lista se debe enviar el token correspondiente al ingresar.
-* Para obtener la lista se usa la ruta: /api/favs y el método get
-
 ### Crear una lista de favoritos de un usuario
 * Para crear una lista se debe enviar el token correspondiente al ingresar.
 * Para obtener la lista se usa la ruta: /api/favs y el método post
@@ -47,6 +43,10 @@ música, ropa, cursos, etc.
 }
 ```
 
+### Obtener todas las listas de favoritos de un usuario
+* Para obtener la lista se debe enviar el token correspondiente al ingresar.
+* Para obtener la lista se usa la ruta: /api/favs y el método get
+
 ### Obtener una lista de favoritos de un usuario
 * Para obtener una lista se debe enviar el token correspondiente al ingresar.
 * Tambíen se debe enviar el id de la correspondiente lista en la ruta de la siguiente forma: /api/favs/:id y el método get
@@ -67,11 +67,18 @@ música, ropa, cursos, etc.
 
  ## Dependencias
 ***
-* [express](https://www.npmjs.com/package/express) Versión 4.17.3
 * [bcrypt](https://www.npmjs.com/package/bcrypt) Versión 5.0.1
 * [cross-env](https://www.npmjs.com/package/cross-env) Versión 7.0.3
+* [dotenv](https://www.npmjs.com/package/dotenv) Versión 16.0.1
+* [express](https://www.npmjs.com/package/express) Versión 4.17.3
 * [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) Versión 8.5.1
 * [mongoose](https://www.npmjs.com/package/mongoose) Versión 6.3.1
+
+ ## Dependencias de desarrollo
+***
+* [jest](https://www.npmjs.com/package/jest) Versión 28.1.0
+* [nodemon](https://www.npmjs.com/package/nodemon) Versión 2.0.15
+* [supertest](https://www.npmjs.com/package/supertest) Versión 6.2.3
 
 ## Instalación
 ***
@@ -82,4 +89,12 @@ $ git clone https://github.com/FernandoRodriguezValdivia/assessment.git
 $ cd assessment
 $ npm install
 $ npm start
+```
+
+## Test 
+***
+Para ejecutar los tests se debe ejecutar el comando npm test
+
+```
+$ npm test
 ```
